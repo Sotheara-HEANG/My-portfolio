@@ -1,65 +1,323 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>HEANG SOTHEARA | Portfolio</title>
+    <title>HEANG SOTHEARA | Data Scientist & ML Engineer</title>
+    <meta name="description"
+        content="Portfolio of Heang Sotheara – Data Scientist, ML Engineer, and Graph Theory enthusiast building intelligent data solutions.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
 
-    <header>
-        <nav>
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#contact">Contact</a></li>
+    <!-- Particle Background -->
+    <canvas id="particle-canvas"></canvas>
+
+    <!-- Navigation -->
+    <header id="main-header">
+        <nav id="main-nav">
+            <a href="#hero" class="nav-logo"><span class="logo-bracket">{</span> ST <span
+                    class="logo-bracket">}</span></a>
+            <button class="nav-toggle" id="nav-toggle" aria-label="Toggle navigation">
+                <span></span><span></span><span></span>
+            </button>
+            <ul class="nav-menu" id="nav-menu">
+                <li><a href="#hero" class="nav-link active">Home</a></li>
+                <li><a href="#about" class="nav-link">About</a></li>
+                <li><a href="#skills" class="nav-link">Skills</a></li>
+                <li><a href="#projects" class="nav-link">Projects</a></li>
+                <li><a href="#contact" class="nav-link">Contact</a></li>
+                <li><button id="theme-toggle" class="theme-toggle" aria-label="Toggle light/dark theme"><i
+                            class="fa-solid fa-sun"></i></button></li>
             </ul>
         </nav>
     </header>
 
+    <!-- Hero -->
     <section id="hero">
-        <h1>Hi, I'm HEANG SOTHEARA</h1>
-        <p>Computer Science Student specializing in Data Science.</p>
-    </section>
-
-    <section id="projects">
-        <h2>Featured Projects</h2>
-        <div class="project-grid">
-            <article>
-                <h3>Traffic Prediction Model</h3>
-                <p>Used the METR-LA dataset to predict traffic flow using Graph Neural Networks.</p>
-                <a href="#">View Project</a>
-            </article>
-            
-            <article>
-                <h3>Cat Breed Classifier</h3>
-                <p>A CNN-based model trained to identify 7 different cat breeds with high accuracy.</p>
-                <a href="#">View Project</a>
-            </article>
+        <div class="hero-container">
+            <div class="hero-text">
+                <p class="hero-greeting">Hello, I'm</p>
+                <h1 class="hero-name">HEANG <span class="gradient-text">Sotheara</span></h1>
+                <div class="hero-title-wrapper">
+                    <span id="typed-text" class="gradient-text"></span><span class="cursor">|</span>
+                </div>
+                <p class="hero-description">I specialize in machine learning, data analysis, and building
+                    intelligent data solutions that turn data into actionable insights.</p>
+                <div class="hero-cta">
+                    <a href="#projects" class="btn btn-primary">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+                    <a href="#contact" class="btn btn-outline">Contact Me</a>
+                </div>
+                <div class="hero-socials">
+                    <a href="https://github.com/Sotheara-HEANG" target="_blank" class="social-link"
+                        aria-label="GitHub"><i class="fa-brands fa-github"></i></a>
+                    <a href="https://www.linkedin.com/in/heang-sotheara-65a4423b6/" target="_blank" class="social-link"
+                        aria-label="LinkedIn"><i class="fa-brands fa-linkedin-in"></i></a>
+                    <a href="https://huggingface.co/Sotheara204" target="_blank" class="social-link"
+                        aria-label="Hugging Face"><i class="fa-solid fa-face-smile"></i></a>
+                    <a href="mailto:sotheara.heang204@gmail.com" class="social-link" aria-label="Email"><i
+                            class="fa-solid fa-envelope"></i></a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <div class="image-ring-glow"></div>
+                <div class="image-ring">
+                    <img src="img/Profile picture.jpg" alt="Heang Sotheara">
+                </div>
+                <div class="hero-image-decoration"></div>
+            </div>
+        </div>
+        <div class="scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
+            </div>
         </div>
     </section>
 
+    <!-- About -->
+    <section id="about">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">About Me</p>
+                <h2 class="section-title">Turning Data Into <span class="gradient-text">Impact</span></h2>
+            </div>
+            <div class="about-content">
+                <div class="about-stats animate-on-scroll">
+                    <div class="stat-card glass-card">
+                        <div class="stat-number" data-target="10">0</div>
+                        <div class="stat-label">Projects</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number" data-target="3">0</div>
+                        <div class="stat-label">Years Learning</div>
+                    </div>
+                    <div class="stat-card glass-card">
+                        <div class="stat-number" data-target="5">0</div>
+                        <div class="stat-label">Technologies</div>
+                    </div>
+                </div>
+                <div class="about-text animate-on-scroll">
+                    <p>I'm a <strong>Data Science</strong> student passionate about using data and machine learning to
+                        solve real-world problems. My interest in data science began when I realized how powerful data
+                        can be in making informed decisions and solving complex problems.</p>
+                    <p>I'm also interested in business intelligence, and how data can be used to improve decision making
+                        process. I'm always eager to learn new knowledge and technologies to stay up-to-date with the
+                        latest trends in data science.</p>
+                    <div class="about-highlights">
+                        <span class="highlight-item"><i class="fa-solid fa-brain"></i> Machine Learning</span>
+                        <span class="highlight-item"><i class="fa-solid fa-database"></i> Data Engineering</span>
+                        <span class="highlight-item"><i class="fa-solid fa-chart-line"></i> Analytics</span>
+                        <span class="highlight-item"><i class="fa-solid fa-eye"></i> Visualization</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Skills -->
     <section id="skills">
-        <h2>Skills</h2>
-        <ul>
-            <li>Python (Machine Learning, Data Analysis)</li>
-            <li>HTML/CSS</li>
-            <li>Graph Theory</li>
-            <li>SQL</li>
-        </ul>
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">What I Use</p>
+                <h2 class="section-title">Skills & <span class="gradient-text">Technologies</span></h2>
+            </div>
+            <div class="skills-grid">
+                <div class="skill-category glass-card animate-on-scroll">
+                    <div class="skill-category-icon"><i class="fa-solid fa-code"></i></div>
+                    <h3 class="skill-category-title">Languages</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Python</span>
+                        <span class="skill-tag">SQL</span>
+                        <span class="skill-tag">R</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll">
+                    <div class="skill-category-icon"><i class="fa-solid fa-robot"></i></div>
+                    <h3 class="skill-category-title">ML / AI</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PyTorch</span>
+                        <span class="skill-tag">Scikit-learn</span>
+                        <span class="skill-tag">TensorFlow / Keras</span>
+                        <span class="skill-tag">Hugging Face</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll">
+                    <div class="skill-category-icon"><i class="fa-solid fa-server"></i></div>
+                    <h3 class="skill-category-title">Data Engineering</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">PySpark</span>
+                        <span class="skill-tag">Kafka</span>
+                        <span class="skill-tag">MySQL / PostgreSQL</span>
+                        <span class="skill-tag">Docker</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll">
+                    <div class="skill-category-icon"><i class="fa-solid fa-brain"></i></div>
+                    <h3 class="skill-category-title">Mathematics</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Calculus</span>
+                        <span class="skill-tag">Probability</span>
+                        <span class="skill-tag">Statistics</span>
+                        <span class="skill-tag">Graph Theory</span>
+                    </div>
+                </div>
+                <div class="skill-category glass-card animate-on-scroll">
+                    <div class="skill-category-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <h3 class="skill-category-title">Tools</h3>
+                    <div class="skill-tags">
+                        <span class="skill-tag">Git / GitHub</span>
+                        <span class="skill-tag">Streamlit</span>
+                        <span class="skill-tag">Power BI</span>
+                        <span class="skill-tag">Excel / Google Sheets</span>
+                        <span class="skill-tag">Visual Studio Code</span>
+                        <span class="skill-tag">Jupyter Notebook</span>
+                        <span class="skill-tag">Google Colab</span>
+                    </div>
+                </div>
+            </div>
+        </div>
     </section>
 
+    <!-- Projects -->
+    <section id="projects">
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">My Work</p>
+                <h2 class="section-title">Featured <span class="gradient-text">Projects</span></h2>
+            </div>
+            <div class="projects-grid">
+                <div class="project-card glass-card animate-on-scroll">
+                    <div class="project-card-header">
+                        <div class="project-icon"><i class="fa-solid fa-road"></i></div>
+                        <div class="project-links">
+                            <a href="https://github.com/Sotheara-HEANG" target="_blank" aria-label="Source code"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Traffic Prediction Model</h3>
+                    <p class="project-description">Used the METR-LA dataset to predict traffic flow patterns using Graph
+                        Neural Networks. Captures spatial-temporal dependencies across road sensors.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>PyTorch</span><span>GNN</span><span>NumPy</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card animate-on-scroll">
+                    <div class="project-card-header">
+                        <div class="project-icon"><i class="fa-solid fa-cat"></i></div>
+                        <div class="project-links">
+                            <a href="https://github.com/Sotheara-HEANG" target="_blank" aria-label="Source code"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Cat Breed Classifier</h3>
+                    <p class="project-description">A CNN-based model trained to identify 7 different cat breeds with
+                        high accuracy. Includes data augmentation and transfer learning techniques.</p>
+                    <div class="project-tech">
+                        <span>Python</span><span>TensorFlow</span><span>CNN</span><span>Keras</span>
+                    </div>
+                </div>
+
+                <div class="project-card glass-card animate-on-scroll">
+                    <div class="project-card-header">
+                        <div class="project-icon"><i class="fa-solid fa-coins"></i></div>
+                        <div class="project-links">
+                            <a href="https://github.com/Sotheara-HEANG" target="_blank" aria-label="Source code"><i
+                                    class="fa-brands fa-github"></i></a>
+                        </div>
+                    </div>
+                    <h3 class="project-title">Crypto ETL Pipeline</h3>
+                    <p class="project-description">End-to-end data pipeline for cryptocurrency market data using Kafka,
+                        PySpark, and MySQL with a Streamlit dashboard for real-time monitoring.</p>
+                    <div class="project-tech">
+                        <span>PySpark</span><span>Kafka</span><span>MySQL</span><span>Docker</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
     <section id="contact">
-        <h2>Get In Touch</h2>
-        <p>Email: <a href="mailto:sotheara.heang204@email.com">sotheara.heang204@email.com</a></p>
+        <div class="section-container">
+            <div class="section-header animate-on-scroll">
+                <p class="section-label">Say Hello</p>
+                <h2 class="section-title">Get In <span class="gradient-text">Touch</span></h2>
+            </div>
+            <div class="contact-content">
+                <div class="animate-on-scroll">
+                    <p class="contact-text">Have a question or want to work together? Feel free to reach out. I'm always
+                        open to discussing new projects and ideas.</p>
+                    <div class="contact-details">
+                        <a href="mailto:sotheara.heang204@gmail.com" class="contact-item">
+                            <div class="contact-item-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <div class="contact-item-label">Email</div>
+                                <div class="contact-item-value">sotheara.heang204@gmail.com</div>
+                            </div>
+                        </a>
+                        <a href="https://github.com/Sotheara-HEANG" target="_blank" class="contact-item">
+                            <div class="contact-item-icon"><i class="fa-brands fa-github"></i></div>
+                            <div>
+                                <div class="contact-item-label">GitHub</div>
+                                <div class="contact-item-value">Sotheara-HEANG</div>
+                            </div>
+                        </a>
+                        <a href="https://www.linkedin.com/in/heang-sotheara-65a4423b6/" target="_blank"
+                            class="contact-item">
+                            <div class="contact-item-icon"><i class="fa-brands fa-linkedin-in"></i></div>
+                            <div>
+                                <div class="contact-item-label">LinkedIn</div>
+                                <div class="contact-item-value">Heang Sotheara</div>
+                            </div>
+                        </a>
+                    </div>
+                </div>
+                <form id="contact-form" class="contact-form glass-card animate-on-scroll">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" placeholder="Your name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="your@email.com" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" placeholder="Write your message..." required></textarea>
+                    </div>
+                    <button type="submit" id="form-submit" class="btn btn-primary btn-full">
+                        <span>Send Message</span><i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </form>
+            </div>
+        </div>
     </section>
 
-    <footer>
-        <p>&copy; 2026 HEANG SOTHEARA. Built with HTML & CSS.</p>
+    <!-- Footer -->
+    <footer id="main-footer">
+        <div class="footer-content">
+            <span class="footer-logo"><span class="logo-bracket">{</span> ST <span class="logo-bracket">}</span></span>
+            <div class="footer-socials">
+                <a href="https://github.com/Sotheara-HEANG" target="_blank" aria-label="GitHub"><i
+                        class="fa-brands fa-github"></i></a>
+                <a href="https://www.linkedin.com/in/heang-sotheara-65a4423b6/" target="_blank" aria-label="LinkedIn"><i
+                        class="fa-brands fa-linkedin-in"></i></a>
+                <a href="mailto:sotheara.heang204@gmail.com" aria-label="Email"><i class="fa-solid fa-envelope"></i></a>
+            </div>
+            <span class="footer-copy">&copy; 2026 Heang Sotheara. All rights reserved.</span>
+        </div>
     </footer>
 
+    <script src="script.js"></script>
 </body>
-</html>
 
+</html>
