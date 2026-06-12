@@ -2,18 +2,18 @@
 const themeToggle = document.getElementById("theme-toggle");
 const savedTheme = localStorage.getItem("theme") || "dark";
 document.documentElement.setAttribute("data-theme", savedTheme);
-if (savedTheme === "light") themeToggle.innerHTML = '<i class="fa-solid fa-moon"></i>';
+themeToggle.setAttribute("aria-pressed", savedTheme === "light");
 
 themeToggle.addEventListener("click", () => {
     const current = document.documentElement.getAttribute("data-theme");
     const next = current === "dark" ? "light" : "dark";
     document.documentElement.setAttribute("data-theme", next);
-    themeToggle.innerHTML = next === "dark" ? '<i class="fa-solid fa-sun"></i>' : '<i class="fa-solid fa-moon"></i>';
+    themeToggle.setAttribute("aria-pressed", next === "light");
     localStorage.setItem("theme", next);
 });
 
 /* ===== Typing Effect ===== */
-const titles = ["Data Analyst", "ML Engineer", "Data Engineer", "Data Visualizer"];
+const titles = ["Senior Data Science Student", "Applied Math Builder", "Computer Vision Learner", "Distributed Systems Explorer"];
 let titleIdx = 0, charIdx = 0, deleting = false;
 const typedEl = document.getElementById("typed-text");
 
@@ -62,8 +62,18 @@ window.addEventListener("scroll", () => {
 /* ===== Mobile Menu ===== */
 const toggle = document.getElementById("nav-toggle");
 const menu = document.getElementById("nav-menu");
-toggle.addEventListener("click", () => menu.classList.toggle("open"));
-menu.querySelectorAll(".nav-link").forEach(l => l.addEventListener("click", () => menu.classList.remove("open")));
+
+function setMenu(open) {
+    menu.classList.toggle("open", open);
+    toggle.classList.toggle("open", open);
+    toggle.setAttribute("aria-expanded", open);
+}
+
+toggle.addEventListener("click", () => setMenu(!menu.classList.contains("open")));
+menu.querySelectorAll(".nav-link").forEach(l => l.addEventListener("click", () => setMenu(false)));
+document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") setMenu(false);
+});
 
 /* ===== Counter Animation ===== */
 const counters = document.querySelectorAll(".stat-number");
@@ -88,13 +98,19 @@ counters.forEach(c => counterObs.observe(c));
 document.getElementById("contact-form").addEventListener("submit", function (e) {
     e.preventDefault();
     const btn = document.getElementById("form-submit");
-    btn.innerHTML = '<span>Message Sent!</span><i class="fa-solid fa-check"></i>';
-    btn.style.background = "rgba(3, 218, 198, 0.2)";
-    btn.style.color = "#03dac6";
+    const name = document.getElementById("name").value.trim();
+    const email = document.getElementById("email").value.trim();
+    const message = document.getElementById("message").value.trim();
+    const subject = encodeURIComponent(`Portfolio contact from ${name}`);
+    const body = encodeURIComponent(`${message}\n\nFrom: ${name}\nEmail: ${email}`);
+
+    window.location.href = `mailto:sotheara.heang204@gmail.com?subject=${subject}&body=${body}`;
+    btn.innerHTML = '<span>Email Draft Opened</span><i class="fa-solid fa-envelope-open-text"></i>';
+    btn.style.background = "rgba(45, 212, 191, 0.2)";
+    btn.style.color = "#2dd4bf";
     setTimeout(() => {
         btn.innerHTML = '<span>Send Message</span><i class="fa-solid fa-paper-plane"></i>';
         btn.style.background = ""; btn.style.color = "";
-        this.reset();
     }, 3000);
 });
 
@@ -102,12 +118,13 @@ document.getElementById("contact-form").addEventListener("submit", function (e) 
 const canvas = document.getElementById("particle-canvas");
 const ctx = canvas.getContext("2d");
 let particles = [];
+const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
 function resizeCanvas() { canvas.width = window.innerWidth; canvas.height = window.innerHeight; }
 resizeCanvas();
 window.addEventListener("resize", resizeCanvas);
 
-for (let i = 0; i < 60; i++) {
+for (let i = 0; i < 60 && !reduceMotion; i++) {
     particles.push({
         x: Math.random() * canvas.width, y: Math.random() * canvas.height,
         vx: (Math.random() - 0.5) * 0.4, vy: (Math.random() - 0.5) * 0.4,
@@ -122,7 +139,7 @@ function animateParticles() {
         if (p.x < 0) p.x = canvas.width; if (p.x > canvas.width) p.x = 0;
         if (p.y < 0) p.y = canvas.height; if (p.y > canvas.height) p.y = 0;
         ctx.beginPath(); ctx.arc(p.x, p.y, p.r, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(3, 218, 198, ${p.alpha})`; ctx.fill();
+        ctx.fillStyle = `rgba(45, 212, 191, ${p.alpha})`; ctx.fill();
     });
     // Draw connections
     for (let i = 0; i < particles.length; i++) {
@@ -134,11 +151,11 @@ function animateParticles() {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(3, 218, 198, ${0.06 * (1 - dist / 150)})`;
+                ctx.strokeStyle = `rgba(45, 212, 191, ${0.06 * (1 - dist / 150)})`;
                 ctx.lineWidth = 0.5; ctx.stroke();
             }
         }
     }
     requestAnimationFrame(animateParticles);
 }
-animateParticles();
+if (!reduceMotion) animateParticles();
