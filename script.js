@@ -13,7 +13,7 @@ themeToggle.addEventListener("click", () => {
 });
 
 /* ===== Typing Effect ===== */
-const titles = ["Senior Data Science Student", "Applied Math Builder", "Computer Vision Learner", "Distributed Systems Explorer"];
+const titles = ["Senior Data Science Student", "Machine Learning Engineer", "Applied Math & Statistics", "Data Analyst"];
 let titleIdx = 0, charIdx = 0, deleting = false;
 const typedEl = document.getElementById("typed-text");
 
